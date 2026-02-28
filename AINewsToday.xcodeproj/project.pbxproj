@@ -18,6 +18,7 @@ ttB20001000000000000000002 /* Source.swift in Sources */ = {isa = PBXBuildFile; 
 ttB20001000000000000000003 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20002000000000000000003 /* UserPreferences.swift */; };
 ttB20001000000000000000004 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20002000000000000000004 /* APIClient.swift */; };
 ttB20001000000000000000005 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20002000000000000000005 /* PersistenceService.swift */; };
+		C30001000000000000000001 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30002000000000000000001 /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@ ttB20002000000000000000002 /* Source.swift */ = {isa = PBXFileReference; lastKno
 ttB20002000000000000000003 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 ttB20002000000000000000004 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 ttB20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		C30002000000000000000001 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@ ttB20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileRefere
 			children = (
 				B20002000000000000000004 /* APIClient.swift */,
 				B20002000000000000000005 /* PersistenceService.swift */,
+				C30002000000000000000001 /* NotificationManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@ ttB20001000000000000000005 /* PersistenceService.swift in Sources */ = {isa = PB
 				B20001000000000000000003 /* UserPreferences.swift in Sources */,
 				B20001000000000000000004 /* APIClient.swift in Sources */,
 				B20001000000000000000005 /* PersistenceService.swift in Sources */,
+				C30001000000000000000001 /* NotificationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
