@@ -1,0 +1,20 @@
+{
+  "app_store_metadata": {
+    "app_name": "AI News Today",
+    "subtitle": "AI-Curated Daily News Digest",
+    "keywords": "ai news,daily digest,news summary,artificial intelligence,tech news,ai headlines,news aggregator,smart news,personalized news,ai updates,machine learning news,news briefing,ai curated,news reader,trending ai",
+    "description": "Stay ahead of the AI revolution with AI News Today — your intelligent daily news companion.\n\nAI News Today uses advanced artificial intelligence to curate, summarize, and deliver the most important news stories directly to you. No more doomscrolling through endless feeds. Get the stories that matter, distilled into clear, concise summaries.\n\n▸ AI-POWERED CURATION\nOur AI engine scans thousands of sources to surface the stories that matter most. Every article is summarized so you can stay informed in minutes, not hours.\n\n▸ DAILY DIGEST NOTIFICATIONS\nStart your morning with a personalized news briefing delivered right to your lock screen. Never miss a breaking story.\n\n▸ PERSONALIZED FEED\nThe more you read, the smarter your feed gets. AI News Today learns your interests and tailors content to match what you care about.\n\n▸ BOOKMARK & SAVE\nSave articles for later with one tap. Build your own library of must-read stories and revisit them anytime.\n\n▸ CLEAN, DISTRACTION-FREE READING\nNo clutter, no autoplay videos, no clickbait. Just the news, beautifully presented.\n\nFREE TO START\nRead up to 5 articles per day for free. Upgrade to AI News Today Pro for unlimited access to every story, every day.\n\nWhether you're tracking the latest in artificial intelligence, machine learning breakthroughs, or tech industry moves — AI News Today keeps you informed without the noise.\n\nDownload now and let AI do the reading for you.",
+    "promotional_text": "Your daily AI news briefing — curated, summarized, and delivered by artificial intelligence.",
+    "category": {
+      "primary": "News",
+      "secondary": "Utilities"
+    },
+    "age_rating": {
+      "rating": "12+",
+      "reason": "Infrequent/Mild Mature/Suggestive Themes — news content may cover sensitive real-world topics"
+    },
+    "privacy_url": "https://ainewstoday.app/privacy",
+    "support_url": "https://ainewstoday.app/support",
+    "marketing_url": "https://ainewstoday.app"
+  }
+}
