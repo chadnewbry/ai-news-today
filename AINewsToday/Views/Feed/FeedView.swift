@@ -4,43 +4,39 @@ import SwiftData
 struct FeedView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var viewModel = FeedViewModel()
+    @State private var showPaywall = false
+    @State private var selectedArticle: Article?
+    private var storeManager = StoreManager.shared
+    private var usageManager = UsageManager.shared
 
     var body: some View {
         NavigationStack {
             Group {
-                if viewModel.isLoading && viewModel.articles.isEmpty {
-                    ProgressView("Loading articles…")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else if viewModel.articles.isEmpty {
+                if viewModel.articles.isEmpty && !viewModel.isLoading {
                     ContentUnavailableView(
-                        "No Articles Yet",
+                        "Coming Soon",
                         systemImage: "newspaper",
-                        description: Text("Pull down to fetch the latest AI news.")
+                        description: Text("Your AI-curated news feed will appear here.")
                     )
                 } else {
                     articleList
                 }
             }
             .navigationTitle("Today's Feed")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    usageIndicator
+                }
+            }
             .refreshable {
                 await viewModel.refresh(context: modelContext)
             }
-            .task {
-                viewModel.loadArticles(from: modelContext)
-                if viewModel.articles.isEmpty {
-                    await viewModel.refresh(context: modelContext)
-                }
+            .onAppear { viewModel.loadArticles(from: modelContext) }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
             }
-            .overlay(alignment: .bottom) {
-                if let error = viewModel.errorMessage {
-                    Text(error)
-                        .font(.caption)
-                        .padding(10)
-                        .background(.ultraThinMaterial)
-                        .clipShape(Capsule())
-                        .padding(.bottom, 8)
-                        .transition(.move(edge: .bottom).combined(with: .opacity))
-                }
+            .navigationDestination(item: $selectedArticle) { article in
+                ArticleDetailView(article: article)
             }
         }
     }
@@ -49,21 +45,46 @@ struct FeedView: View {
         ScrollView {
             LazyVStack(spacing: 16) {
                 ForEach(viewModel.articles) { article in
-                    NavigationLink(value: article) {
-                        ArticleCardView(article: article)
-                    }
-                    .buttonStyle(.plain)
+                    ArticleCardView(article: article)
+                        .onTapGesture { handleArticleTap(article) }
                 }
             }
             .padding()
         }
-        .navigationDestination(for: Article.self) { article in
-            ArticleDetailView(article: article)
+    }
+
+    @ViewBuilder
+    private var usageIndicator: some View {
+        if storeManager.isProUser {
+            Image(systemName: "star.fill")
+                .foregroundStyle(.yellow)
+        } else {
+            HStack(spacing: 6) {
+                Text("\(usageManager.freeUsesRemaining) free")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+
+                Button {
+                    showPaywall = true
+                } label: {
+                    Text("Upgrade")
+                        .font(.caption.bold())
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.mini)
+            }
+        }
+    }
+
+    private func handleArticleTap(_ article: Article) {
+        if storeManager.isProUser || usageManager.recordUse(isPro: false) {
+            selectedArticle = article
+        } else {
+            showPaywall = true
         }
     }
 }
 
 #Preview {
     FeedView()
-        .modelContainer(for: Article.self, inMemory: true)
 }
