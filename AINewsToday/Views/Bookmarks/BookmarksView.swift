@@ -2,11 +2,11 @@ import SwiftUI
 import SwiftData
 
 struct BookmarksView: View {
-    @Query(filter: #Predicate<Article> { $0.isBookmarked },
-           sort: \Article.publishedAt, order: .reverse)
-    private var bookmarkedArticles: [Article]
-
-    @State private var selectedArticle: Article?
+    @Query(
+        filter: #Predicate<Article> { $0.isBookmarked },
+        sort: \Article.publishedAt,
+        order: .reverse
+    ) private var bookmarkedArticles: [Article]
 
     var body: some View {
         NavigationStack {
@@ -15,43 +15,25 @@ struct BookmarksView: View {
                     ContentUnavailableView(
                         "No Bookmarks Yet",
                         systemImage: "bookmark",
-                        description: Text("Tap the bookmark icon on any article to save it here.")
+                        description: Text("Articles you bookmark will appear here.")
                     )
                 } else {
-                    List {
-                        ForEach(bookmarkedArticles) { article in
-                            Button {
-                                selectedArticle = article
-                            } label: {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    if let source = article.source {
-                                        Text(source.name.uppercased())
-                                            .font(.caption2)
-                                            .foregroundStyle(.secondary)
-                                    }
-                                    Text(article.title)
-                                        .font(.subheadline.weight(.semibold))
-                                        .lineLimit(2)
-                                    Text(article.publishedAt, style: .relative)
-                                        .font(.caption2)
-                                        .foregroundStyle(.tertiary)
-                                }
-                            }
-                            .swipeActions(edge: .trailing) {
-                                Button(role: .destructive) {
-                                    article.isBookmarked = false
-                                } label: {
-                                    Label("Remove", systemImage: "bookmark.slash")
-                                }
-                            }
+                    List(bookmarkedArticles) { article in
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(article.title)
+                                .font(.headline)
+                                .lineLimit(2)
+                            Text(article.summary)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(2)
                         }
+                        .padding(.vertical, 2)
                     }
+                    .listStyle(.plain)
                 }
             }
             .navigationTitle("Bookmarks")
-            .navigationDestination(item: $selectedArticle) { article in
-                ArticleDetailView(article: article)
-            }
         }
     }
 }

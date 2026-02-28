@@ -10,8 +10,10 @@ final class Article {
     var url: String
     var imageURL: String?
     var publishedAt: Date
+    var category: String
     var isBookmarked: Bool
     var source: Source?
+    var cachedAt: Date
 
     init(
         id: String = UUID().uuidString,
@@ -21,8 +23,10 @@ final class Article {
         url: String,
         imageURL: String? = nil,
         publishedAt: Date = .now,
+        category: String = "General",
         isBookmarked: Bool = false,
-        source: Source? = nil
+        source: Source? = nil,
+        cachedAt: Date = .now
     ) {
         self.id = id
         self.title = title
@@ -31,7 +35,9 @@ final class Article {
         self.url = url
         self.imageURL = imageURL
         self.publishedAt = publishedAt
+        self.category = category
         self.isBookmarked = isBookmarked
         self.source = source
+        self.cachedAt = cachedAt
     }
 }
