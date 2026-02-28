@@ -4,17 +4,20 @@ import SwiftData
 @main
 struct AINewsTodayApp: App {
     let container: ModelContainer
-    private var storeManager = StoreManager.shared
+
+    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
 
     init() {
         container = PersistenceService.shared.container
-        storeManager.configure()
     }
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .task { await storeManager.checkEntitlement() }
+            if hasCompletedOnboarding {
+                ContentView()
+            } else {
+                OnboardingView(hasCompletedOnboarding: $hasCompletedOnboarding)
+            }
         }
         .modelContainer(container)
     }
