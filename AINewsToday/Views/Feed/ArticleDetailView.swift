@@ -4,6 +4,10 @@ struct ArticleDetailView: View {
     let article: Article
     @Environment(\.openURL) private var openURL
 
+    private var articleURL: URL? {
+        URL(string: article.url)
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
@@ -50,16 +54,16 @@ struct ArticleDetailView: View {
                             .lineSpacing(4)
                     }
 
-                    Button {
-                        if let url = URL(string: article.url) {
+                    if let url = articleURL {
+                        Button {
                             openURL(url)
+                        } label: {
+                            Label("Read Full Article", systemImage: "safari")
+                                .frame(maxWidth: .infinity)
                         }
-                    } label: {
-                        Label("Read Full Article", systemImage: "safari")
-                            .frame(maxWidth: .infinity)
+                        .buttonStyle(.borderedProminent)
+                        .padding(.top, 8)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .padding(.top, 8)
                 }
                 .padding(.horizontal)
             }
@@ -67,9 +71,18 @@ struct ArticleDetailView: View {
         .navigationTitle("Article")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            if let url = articleURL {
+                ToolbarItem(placement: .topBarTrailing) {
+                    ShareLink(item: url) {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                }
+            }
             ToolbarItem(placement: .topBarTrailing) {
-                ShareLink(item: URL(string: article.url)!) {
-                    Image(systemName: "square.and.arrow.up")
+                Button {
+                    article.isBookmarked.toggle()
+                } label: {
+                    Image(systemName: article.isBookmarked ? "bookmark.fill" : "bookmark")
                 }
             }
         }

@@ -109,14 +109,30 @@ struct PaywallView: View {
     }
 
     private var restoreButton: some View {
-        Button("Restore Purchases") {
-            Task {
-                await storeManager.restorePurchases()
-                if storeManager.isProUser { dismiss() }
+        VStack(spacing: 8) {
+            Button("Restore Purchases") {
+                Task {
+                    await storeManager.restorePurchases()
+                    if storeManager.isProUser { dismiss() }
+                }
             }
+            .font(.footnote)
+            .foregroundStyle(.secondary)
+
+            HStack(spacing: 4) {
+                Link("Terms of Service", destination: URL(string: "https://ainewstoday.app/terms")!)
+                Text("·")
+                Link("Privacy Policy", destination: URL(string: "https://ainewstoday.app/privacy")!)
+            }
+            .font(.caption2)
+            .foregroundStyle(.secondary)
+
+            Text("Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period. Manage subscriptions in Settings.")
+                .font(.caption2)
+                .foregroundStyle(.quaternary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
         }
-        .font(.footnote)
-        .foregroundStyle(.secondary)
     }
 
     @ViewBuilder
