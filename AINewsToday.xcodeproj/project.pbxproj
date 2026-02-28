@@ -22,6 +22,10 @@ B20001000000000000000005 /* PersistenceService.swift in Sources */ = {isa = PBXB
 		D40001000000000000000001 /* ArticleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40002000000000000000001 /* ArticleCardView.swift */; };
 		D40001000000000000000002 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40002000000000000000002 /* ArticleDetailView.swift */; };
 		D40001000000000000000003 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40002000000000000000003 /* FeedViewModel.swift */; };
+		E50001000000000000000001 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50002000000000000000001 /* StoreManager.swift */; };
+		E50001000000000000000002 /* UsageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50002000000000000000002 /* UsageManager.swift */; };
+		E50001000000000000000003 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50002000000000000000003 /* PaywallView.swift */; };
+		E50001000000000000000004 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = E50007000000000000000001 /* RevenueCat */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,9 @@ B20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileReferenc
 		D40002000000000000000001 /* ArticleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCardView.swift; sourceTree = "<group>"; };
 		D40002000000000000000002 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		D40002000000000000000003 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		E50002000000000000000001 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		E50002000000000000000002 /* UsageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageManager.swift; sourceTree = "<group>"; };
+		E50002000000000000000003 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +55,7 @@ B20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileReferenc
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50001000000000000000004 /* RevenueCat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +90,7 @@ B20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileReferenc
 				A10003000000000000000004 /* Feed */,
 				A10003000000000000000005 /* Bookmarks */,
 				A10003000000000000000006 /* Settings */,
+				E50003000000000000000001 /* Paywall */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +137,8 @@ B20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileReferenc
 				B20002000000000000000004 /* APIClient.swift */,
 				B20002000000000000000005 /* PersistenceService.swift */,
 				C30002000000000000000001 /* NotificationManager.swift */,
+				E50002000000000000000001 /* StoreManager.swift */,
+				E50002000000000000000002 /* UsageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -148,6 +159,14 @@ B20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileReferenc
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		E50003000000000000000001 /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				E50002000000000000000003 /* PaywallView.swift */,
+			);
+			path = Paywall;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,6 +183,9 @@ B20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileReferenc
 			dependencies = (
 			);
 			name = AINewsToday;
+			packageProductDependencies = (
+				E50007000000000000000001 /* RevenueCat */,
+			);
 			productName = AINewsToday;
 			productReference = A10002000000000000000007 /* AI News Today.app */;
 			productType = "com.apple.product-type.application";
@@ -194,6 +216,9 @@ B20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileReferenc
 			mainGroup = A10003000000000000000001;
 			productRefGroup = A10003000000000000000009 /* Products */;
 			projectDirPath = "";
+			packageReferences = (
+				E50006000000000000000001 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+			);
 			projectRoot = "";
 			targets = (
 				A10005000000000000000001 /* AINewsToday */,
@@ -231,6 +256,9 @@ B20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileReferenc
 				D40001000000000000000001 /* ArticleCardView.swift in Sources */,
 				D40001000000000000000002 /* ArticleDetailView.swift in Sources */,
 				D40001000000000000000003 /* FeedViewModel.swift in Sources */,
+				E50001000000000000000001 /* StoreManager.swift in Sources */,
+				E50001000000000000000002 /* UsageManager.swift in Sources */,
+				E50001000000000000000003 /* PaywallView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +465,26 @@ B20002000000000000000005 /* PersistenceService.swift */ = {isa = PBXFileReferenc
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+}
+/* Begin XCRemoteSwiftPackageReference section */
+		E50006000000000000000001 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E50007000000000000000001 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E50006000000000000000001 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 	};
 	rootObject = A10005000000000000000002 /* Project object */;
