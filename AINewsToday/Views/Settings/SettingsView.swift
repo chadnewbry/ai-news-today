@@ -3,6 +3,7 @@ import SwiftUI
 struct SettingsView: View {
     @State private var notificationManager = NotificationManager.shared
     @State private var showPaywall = false
+    @Environment(\.openURL) private var openURL
     private var storeManager = StoreManager.shared
     private var usageManager = UsageManager.shared
 
@@ -11,6 +12,12 @@ struct SettingsView: View {
         components.hour = notificationManager.dailyDigestHour
         components.minute = notificationManager.dailyDigestMinute
         return Calendar.current.date(from: components) ?? .now
+    }
+
+    private var appVersion: String {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0"
+        let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "1"
+        return "\(version) (\(build))"
     }
 
     var body: some View {
@@ -38,6 +45,29 @@ struct SettingsView: View {
                         }
                     } footer: {
                         Text("Notifications are disabled. Enable them in Settings to receive daily digest alerts.")
+                    }
+                }
+
+                Section("Support") {
+                    Link(destination: URL(string: "https://ainewstoday.app/support")!) {
+                        Label("Help & Support", systemImage: "questionmark.circle")
+                    }
+
+                    Link(destination: URL(string: "https://ainewstoday.app/privacy")!) {
+                        Label("Privacy Policy", systemImage: "hand.raised")
+                    }
+
+                    Link(destination: URL(string: "https://ainewstoday.app/terms")!) {
+                        Label("Terms of Service", systemImage: "doc.text")
+                    }
+                }
+
+                Section {
+                    HStack {
+                        Text("Version")
+                        Spacer()
+                        Text(appVersion)
+                            .foregroundStyle(.secondary)
                     }
                 }
             }
@@ -68,7 +98,7 @@ struct SettingsView: View {
                     VStack(alignment: .leading) {
                         Text("Free Plan")
                             .font(.headline)
-                        Text("\(usageManager.freeUsesRemaining) of \(UsageManager.defaultFreeUses) free reads remaining")
+                        Text("\(usageManager.freeUsesRemaining) of \(UsageManager.defaultFreeUses) free reads remaining today")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
