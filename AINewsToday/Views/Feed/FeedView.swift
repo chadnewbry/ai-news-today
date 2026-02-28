@@ -3,20 +3,17 @@ import SwiftData
 
 struct FeedView: View {
     @Environment(\.modelContext) private var modelContext
-    @State private var viewModel = FeedViewModel()
-    @State private var showPaywall = false
-    @State private var selectedArticle: Article?
-    private var storeManager = StoreManager.shared
-    private var usageManager = UsageManager.shared
+    @Query(sort: \Article.publishedAt, order: .reverse) private var articles: [Article]
+    @State private var repository = NewsRepository()
 
     var body: some View {
         NavigationStack {
             Group {
-                if viewModel.articles.isEmpty && !viewModel.isLoading {
+                if articles.isEmpty && !repository.isLoading {
                     ContentUnavailableView(
-                        "Coming Soon",
+                        "No Articles Yet",
                         systemImage: "newspaper",
-                        description: Text("Your AI-curated news feed will appear here.")
+                        description: Text("Pull to refresh or tap below to load today's AI news.")
                     )
                 } else {
                     articleList
@@ -25,66 +22,67 @@ struct FeedView: View {
             .navigationTitle("Today's Feed")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    usageIndicator
+                    if repository.isLoading {
+                        ProgressView()
+                    }
                 }
             }
             .refreshable {
-                await viewModel.refresh(context: modelContext)
+                await repository.fetchArticles(forceRefresh: true, context: modelContext)
             }
-            .onAppear { viewModel.loadArticles(from: modelContext) }
-            .sheet(isPresented: $showPaywall) {
-                PaywallView()
-            }
-            .navigationDestination(item: $selectedArticle) { article in
-                ArticleDetailView(article: article)
+            .task {
+                await repository.fetchArticles(context: modelContext)
             }
         }
     }
 
     private var articleList: some View {
-        ScrollView {
-            LazyVStack(spacing: 16) {
-                ForEach(viewModel.articles) { article in
-                    ArticleCardView(article: article)
-                        .onTapGesture { handleArticleTap(article) }
-                }
-            }
-            .padding()
+        List(articles) { article in
+            ArticleRowView(article: article)
         }
+        .listStyle(.plain)
     }
+}
 
-    @ViewBuilder
-    private var usageIndicator: some View {
-        if storeManager.isProUser {
-            Image(systemName: "star.fill")
-                .foregroundStyle(.yellow)
-        } else {
-            HStack(spacing: 6) {
-                Text("\(usageManager.freeUsesRemaining) free")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+// MARK: - Article Row
 
-                Button {
-                    showPaywall = true
-                } label: {
-                    Text("Upgrade")
-                        .font(.caption.bold())
+private struct ArticleRowView: View {
+    let article: Article
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                if let sourceName = article.source?.name {
+                    Text(sourceName)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.mini)
+                Spacer()
+                Text(article.category)
+                    .font(.caption2)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(.fill.tertiary, in: Capsule())
             }
-        }
-    }
 
-    private func handleArticleTap(_ article: Article) {
-        if storeManager.isProUser || usageManager.recordUse(isPro: false) {
-            selectedArticle = article
-        } else {
-            showPaywall = true
+            Text(article.title)
+                .font(.headline)
+                .lineLimit(2)
+
+            Text(article.summary)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .lineLimit(3)
+
+            Text(article.publishedAt, style: .relative)
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
         }
+        .padding(.vertical, 4)
     }
 }
 
 #Preview {
     FeedView()
+        .modelContainer(for: Article.self, inMemory: true)
 }

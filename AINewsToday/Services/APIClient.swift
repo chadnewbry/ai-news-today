@@ -32,6 +32,7 @@ actor APIClient {
         - "source_url": publisher homepage
         - "published_at": ISO 8601 date string
         - "image_url": image URL or null
+        - "category": one of "General", "Research", "Industry", "Policy", "Tools", "Machine Learning", "Robotics", "Ethics"
         Topics of interest: \(topics.joined(separator: ", "))
         Respond with ONLY the JSON array, no markdown.
         """
@@ -88,9 +89,10 @@ struct ArticleDTO: Codable {
     let sourceURL: String
     let publishedAt: Date?
     let imageURL: String?
+    let category: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, title, summary, url
+        case id, title, summary, url, category
         case sourceName = "source_name"
         case sourceURL = "source_url"
         case publishedAt = "published_at"
@@ -106,6 +108,7 @@ struct ArticleDTO: Codable {
         sourceName = try container.decode(String.self, forKey: .sourceName)
         sourceURL = try container.decode(String.self, forKey: .sourceURL)
         imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
+        category = try container.decodeIfPresent(String.self, forKey: .category)
 
         if let dateString = try? container.decode(String.self, forKey: .publishedAt) {
             let formatter = ISO8601DateFormatter()

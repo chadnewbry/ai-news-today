@@ -60,7 +60,7 @@ struct PaywallView: View {
     private func featureRow(icon: String, text: String) -> some View {
         HStack(spacing: 12) {
             Image(systemName: icon)
-                .foregroundStyle(.accent)
+                .foregroundColor(.accentColor)
                 .frame(width: 24)
             Text(text)
                 .font(.subheadline)
