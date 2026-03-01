@@ -4,9 +4,9 @@ struct SettingsView: View {
     @State private var notificationManager = NotificationManager.shared
     @State private var showingTimePicker = false
 
-    private let privacyPolicyURL = URL(string: "https://chadnewbry.github.io/ai-news-today/privacy-policy")!
-    private let termsOfServiceURL = URL(string: "https://chadnewbry.github.io/ai-news-today/terms-of-service")!
-    private let supportURL = URL(string: "https://chadnewbry.github.io/ai-news-today/support")!
+    private let privacyPolicyURL = URL(string: "https://chadnewbry.github.io/ai-news-today/privacy-policy.html")!
+    private let termsOfServiceURL = URL(string: "https://chadnewbry.github.io/ai-news-today/terms-of-service.html")!
+    private let supportURL = URL(string: "https://chadnewbry.github.io/ai-news-today/support.html")!
 
     private var digestTime: Date {
         var components = DateComponents()
