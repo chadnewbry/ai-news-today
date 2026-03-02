@@ -1,0 +1,90 @@
+# Koubou screenshot composition config for ai news today
+# App theme: AI news aggregation, tech news
+
+device: "iPhone 15 Pro Portrait"
+output_size: "iPhone6_9"
+
+screenshots:
+  - name: "01_feed"
+    source: "raw/01_feed.png"
+    background:
+      gradient:
+        top: "#0D1B2A"
+        bottom: "#1B3A5C"
+    headline:
+      text: "AI News At a Glance"
+      color: "#00E5FF"
+      font_weight: bold
+    subtitle:
+      text: "Curated stories from top AI sources"
+      color: "#80DEEA"
+
+  - name: "02_article"
+    source: "raw/02_article.png"
+    background:
+      gradient:
+        top: "#1A1A2E"
+        bottom: "#16213E"
+    headline:
+      text: "Read the Full Story"
+      color: "#7C4DFF"
+      font_weight: bold
+    subtitle:
+      text: "In-depth coverage of breaking AI news"
+      color: "#B388FF"
+
+  - name: "03_trending"
+    source: "raw/03_trending.png"
+    background:
+      gradient:
+        top: "#0F2027"
+        bottom: "#203A43"
+    headline:
+      text: "See What's Trending"
+      color: "#00E676"
+      font_weight: bold
+    subtitle:
+      text: "Top stories the AI community is reading"
+      color: "#69F0AE"
+
+  - name: "04_search"
+    source: "raw/04_search.png"
+    background:
+      gradient:
+        top: "#1A1A2E"
+        bottom: "#2C3E6B"
+    headline:
+      text: "Find Any Topic"
+      color: "#448AFF"
+      font_weight: bold
+    subtitle:
+      text: "Search across thousands of AI articles"
+      color: "#82B1FF"
+
+  - name: "05_bookmarks"
+    source: "raw/05_bookmarks.png"
+    background:
+      gradient:
+        top: "#1C1C3A"
+        bottom: "#3A1C5C"
+    headline:
+      text: "Save for Later"
+      color: "#FF4081"
+      font_weight: bold
+    subtitle:
+      text: "Bookmark stories to read anytime"
+      color: "#FF80AB"
+
+  - name: "06_settings"
+    source: "raw/06_settings.png"
+    background:
+      gradient:
+        top: "#1A1A2E"
+        bottom: "#2D2D44"
+    headline:
+      text: "Fully Customizable"
+      color: "#E0E0E0"
+      font_weight: bold
+    subtitle:
+      text: "Tailor your news feed to your interests"
+      color: "#9E9E9E"
