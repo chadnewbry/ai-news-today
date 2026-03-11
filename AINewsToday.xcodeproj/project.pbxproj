@@ -31,6 +31,13 @@
 		D83A5141C1C741B9929D6B1C /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE0885509D14D4B86138CCD /* APIClient.swift */; };
 		E9EB7C6422C0410086EA27D6 /* ArticleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FE61B6F6AB4612B9C1D09C /* ArticleCardView.swift */; };
 		F2A3C9372F6C43D2B22B7276 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F76A54EBB214254A9F8E303 /* FeedView.swift */; };
+		AABB00110011001100110022 /* DailyBriefingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00110011001100110011 /* DailyBriefingView.swift */; };
+		AABB00220022002200220022 /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00220022002200220011 /* AlertsView.swift */; };
+		AABB00330033003300330022 /* AudioBriefingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00330033003300330011 /* AudioBriefingsView.swift */; };
+		AABB00440044004400440022 /* ModelTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00440044004400440011 /* ModelTrackerView.swift */; };
+		AABB00550055005500550022 /* FundingTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00550055005500550011 /* FundingTrackerView.swift */; };
+		AABB00660066006600660022 /* ResearchDigestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00660066006600660011 /* ResearchDigestView.swift */; };
+		AABB00770077007700770022 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00770077007700770011 /* DiscoverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +66,13 @@
 		E542C85FBE794E97A463EA9E /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		EEEF7A6C802A351522C08DDC /* OnboardingPageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingPageView.swift; sourceTree = "<group>"; };
 		F1236DCFF1442526B2A29031 /* TopicSelectionGrid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TopicSelectionGrid.swift; sourceTree = "<group>"; };
+		AABB00110011001100110011 /* DailyBriefingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBriefingView.swift; sourceTree = "<group>"; };
+		AABB00220022002200220011 /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
+		AABB00330033003300330011 /* AudioBriefingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBriefingsView.swift; sourceTree = "<group>"; };
+		AABB00440044004400440011 /* ModelTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTrackerView.swift; sourceTree = "<group>"; };
+		AABB00550055005500550011 /* FundingTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundingTrackerView.swift; sourceTree = "<group>"; };
+		AABB00660066006600660011 /* ResearchDigestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchDigestView.swift; sourceTree = "<group>"; };
+		AABB00770077007700770011 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +94,13 @@
 				81854249815C4103B9B0DC4C /* Settings */,
 				D02A266A8F1642CD9C05F0FC /* Paywall */,
 				D1B798E8F38077B9EB9B3C80 /* Onboarding */,
+				AABB0001000100010001GRP1 /* DailyBriefing */,
+				AABB0002000200020002GRP1 /* Alerts */,
+				AABB0003000300030003GRP1 /* AudioBriefings */,
+				AABB0004000400040004GRP1 /* ModelTracker */,
+				AABB0005000500050005GRP1 /* FundingTracker */,
+				AABB0006000600060006GRP1 /* ResearchDigest */,
+				AABB0007000700070007GRP1 /* Discover */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +213,62 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		AABB0001000100010001GRP1 /* DailyBriefing */ = {
+			isa = PBXGroup;
+			children = (
+				AABB00110011001100110011 /* DailyBriefingView.swift */,
+			);
+			path = DailyBriefing;
+			sourceTree = "<group>";
+		};
+		AABB0002000200020002GRP1 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				AABB00220022002200220011 /* AlertsView.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		AABB0003000300030003GRP1 /* AudioBriefings */ = {
+			isa = PBXGroup;
+			children = (
+				AABB00330033003300330011 /* AudioBriefingsView.swift */,
+			);
+			path = AudioBriefings;
+			sourceTree = "<group>";
+		};
+		AABB0004000400040004GRP1 /* ModelTracker */ = {
+			isa = PBXGroup;
+			children = (
+				AABB00440044004400440011 /* ModelTrackerView.swift */,
+			);
+			path = ModelTracker;
+			sourceTree = "<group>";
+		};
+		AABB0005000500050005GRP1 /* FundingTracker */ = {
+			isa = PBXGroup;
+			children = (
+				AABB00550055005500550011 /* FundingTrackerView.swift */,
+			);
+			path = FundingTracker;
+			sourceTree = "<group>";
+		};
+		AABB0006000600060006GRP1 /* ResearchDigest */ = {
+			isa = PBXGroup;
+			children = (
+				AABB00660066006600660011 /* ResearchDigestView.swift */,
+			);
+			path = ResearchDigest;
+			sourceTree = "<group>";
+		};
+		AABB0007000700070007GRP1 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				AABB00770077007700770011 /* DiscoverView.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -282,6 +359,13 @@
 				8851F2FBFB30425890888A72 /* UsageManager.swift in Sources */,
 				4A809BB06BF14C978F07C581 /* UserPreferences.swift in Sources */,
 				0AAF13B9E4E6F722687C70AC /* OnboardingView.swift in Sources */,
+				AABB00110011001100110022 /* DailyBriefingView.swift in Sources */,
+				AABB00220022002200220022 /* AlertsView.swift in Sources */,
+				AABB00330033003300330022 /* AudioBriefingsView.swift in Sources */,
+				AABB00440044004400440022 /* ModelTrackerView.swift in Sources */,
+				AABB00550055005500550022 /* FundingTrackerView.swift in Sources */,
+				AABB00660066006600660022 /* ResearchDigestView.swift in Sources */,
+				AABB00770077007700770022 /* DiscoverView.swift in Sources */,
 				160B081B8E939775EEA0382A /* OnboardingPageView.swift in Sources */,
 				795811C8D777F3F14B533910 /* TopicSelectionGrid.swift in Sources */,
 			);
@@ -364,6 +448,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadnewbry.ainewstoday;
 				PRODUCT_NAME = "AI News Today";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -452,6 +537,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadnewbry.ainewstoday;
 				PRODUCT_NAME = "AI News Today";
 				SWIFT_EMIT_LOC_STRINGS = YES;

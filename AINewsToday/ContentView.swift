@@ -1,25 +1,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab: Tab = .feed
+    @State private var selectedTab: Tab = .briefing
 
-    enum Tab {
-        case feed, bookmarks, settings
+    enum Tab: String {
+        case briefing, feed, alerts, discover, settings
     }
 
     var body: some View {
         TabView(selection: $selectedTab) {
+            DailyBriefingView()
+                .tabItem {
+                    Label("Briefing", systemImage: "sun.horizon.fill")
+                }
+                .tag(Tab.briefing)
+
             FeedView()
                 .tabItem {
                     Label("Feed", systemImage: "newspaper.fill")
                 }
                 .tag(Tab.feed)
 
-            BookmarksView()
+            AlertsView()
                 .tabItem {
-                    Label("Bookmarks", systemImage: "bookmark.fill")
+                    Label("Alerts", systemImage: "bolt.fill")
                 }
-                .tag(Tab.bookmarks)
+                .tag(Tab.alerts)
+
+            DiscoverView()
+                .tabItem {
+                    Label("Discover", systemImage: "magnifyingglass")
+                }
+                .tag(Tab.discover)
 
             SettingsView()
                 .tabItem {
