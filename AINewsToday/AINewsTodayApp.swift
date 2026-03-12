@@ -9,6 +9,7 @@ struct AINewsTodayApp: App {
 
     init() {
         container = PersistenceService.shared.container
+        StoreManager.shared.configure()
     }
 
     var body: some Scene {
