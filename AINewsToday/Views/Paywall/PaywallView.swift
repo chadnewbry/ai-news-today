@@ -120,9 +120,9 @@ struct PaywallView: View {
             .foregroundStyle(.secondary)
 
             HStack(spacing: 4) {
-                Link("Terms of Service", destination: URL(string: "https://ainewstoday.app/terms")!)
+                Link("Terms of Service", destination: URL(string: "https://chadnewbry.github.io/ai-news-today/terms-of-service.html")!)
                 Text("·")
-                Link("Privacy Policy", destination: URL(string: "https://ainewstoday.app/privacy")!)
+                Link("Privacy Policy", destination: URL(string: "https://chadnewbry.github.io/ai-news-today/privacy-policy.html")!)
             }
             .font(.caption2)
             .foregroundStyle(.secondary)

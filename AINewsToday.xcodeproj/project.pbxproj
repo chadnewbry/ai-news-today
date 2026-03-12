@@ -448,6 +448,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadnewbry.ainewstoday;
 				PRODUCT_NAME = "AI News Today";
@@ -537,6 +538,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.chadnewbry.ainewstoday;
 				PRODUCT_NAME = "AI News Today";
