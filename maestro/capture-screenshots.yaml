@@ -1,0 +1,55 @@
+appId: com.chadnewbry.ainewstoday
+name: "Capture App Store Screenshots"
+---
+
+# First launch: seed sample data with clean state
+- launchApp:
+    appId: com.chadnewbry.ainewstoday
+    clearState: true
+    arguments:
+      - "--screenshot-mode"
+
+# Wait for data seeding
+- waitForAnimationToEnd
+
+# Relaunch without clearing state so @Query views pick up seeded data
+- launchApp:
+    appId: com.chadnewbry.ainewstoday
+    clearState: false
+    arguments:
+      - "--screenshot-mode"
+
+- waitForAnimationToEnd
+
+# Screenshot 1: Daily Briefing (default tab)
+- waitForAnimationToEnd
+- takeScreenshot: "01-briefing"
+
+# Screenshot 2: Feed
+- tapOn: "Feed"
+- waitForAnimationToEnd
+- takeScreenshot: "02-feed"
+
+# Screenshot 3: Article Detail
+- tapOn: "GPT-5 Turbo Launches with Real-Time Reasoning"
+- waitForAnimationToEnd
+- takeScreenshot: "03-detail"
+
+# Navigate back to feed
+- tapOn: "Feed"
+- waitForAnimationToEnd
+
+# Screenshot 4: Alerts
+- tapOn: "Alerts"
+- waitForAnimationToEnd
+- takeScreenshot: "04-alerts"
+
+# Screenshot 5: Discover
+- tapOn: "Discover"
+- waitForAnimationToEnd
+- takeScreenshot: "05-discover"
+
+# Screenshot 6: Settings
+- tapOn: "Settings"
+- waitForAnimationToEnd
+- takeScreenshot: "06-settings"

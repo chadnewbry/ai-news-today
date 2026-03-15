@@ -38,6 +38,7 @@
 		AABB00550055005500550022 /* FundingTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00550055005500550011 /* FundingTrackerView.swift */; };
 		AABB00660066006600660022 /* ResearchDigestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00660066006600660011 /* ResearchDigestView.swift */; };
 		AABB00770077007700770022 /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABB00770077007700770011 /* DiscoverView.swift */; };
+		7A41033221F044288DA83875 /* ScreenshotSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67372C9DD1DC45EF8A172B5B /* ScreenshotSampleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		AABB00550055005500550011 /* FundingTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FundingTrackerView.swift; sourceTree = "<group>"; };
 		AABB00660066006600660011 /* ResearchDigestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResearchDigestView.swift; sourceTree = "<group>"; };
 		AABB00770077007700770011 /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		67372C9DD1DC45EF8A172B5B /* ScreenshotSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotSampleData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				72ECECBBA0394C5BA2226F5C /* ContentView.swift */,
 				0CE677B4C5CA4BDB9391A138 /* Views */,
 				58E96E3026384CA594DE8054 /* Models */,
+				10A7B9137C44481B9DCA53C2 /* Utilities */,
 				53B2606574EF4A1DB0402751 /* Services */,
 				F1A96C4A79404A399E3A9691 /* ViewModels */,
 				3C8A6B58C86D427991CE232E /* Assets.xcassets */,
@@ -267,6 +270,14 @@
 				AABB00770077007700770011 /* DiscoverView.swift */,
 			);
 			path = Discover;
+			sourceTree = "<group>";
+		};
+		10A7B9137C44481B9DCA53C2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				67372C9DD1DC45EF8A172B5B /* ScreenshotSampleData.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +379,7 @@
 				AABB00770077007700770022 /* DiscoverView.swift in Sources */,
 				160B081B8E939775EEA0382A /* OnboardingPageView.swift in Sources */,
 				795811C8D777F3F14B533910 /* TopicSelectionGrid.swift in Sources */,
+				7A41033221F044288DA83875 /* ScreenshotSampleData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
