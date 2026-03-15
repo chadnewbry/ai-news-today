@@ -1,0 +1,42 @@
+{
+  "appName": "AI News Today",
+  "theme": {
+    "backgroundColor": "#000000",
+    "headerColor": "#FFFFFF",
+    "subtitleColor": "#A0A0A0",
+    "accentColor": "#007AFF",
+    "fontFamily": "SF Pro Display"
+  },
+  "screenshots": [
+    {
+      "filename": "01-briefing.png",
+      "header": "Your Daily AI Briefing",
+      "subtitle": "Top stories, summarized and ready in seconds"
+    },
+    {
+      "filename": "02-feed.png",
+      "header": "Curated AI News Feed",
+      "subtitle": "Every breakthrough, funding round, and policy update"
+    },
+    {
+      "filename": "03-detail.png",
+      "header": "Deep Dive Into Stories",
+      "subtitle": "AI-powered summaries with full source access"
+    },
+    {
+      "filename": "04-alerts.png",
+      "header": "Never Miss Breaking News",
+      "subtitle": "Real-time alerts for the stories that matter"
+    },
+    {
+      "filename": "05-discover.png",
+      "header": "Explore AI Topics",
+      "subtitle": "Browse by category, source, or trending topic"
+    },
+    {
+      "filename": "06-settings.png",
+      "header": "Personalized for You",
+      "subtitle": "Tailor your feed to your interests"
+    }
+  ]
+}

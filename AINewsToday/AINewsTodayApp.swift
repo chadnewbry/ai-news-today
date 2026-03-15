@@ -10,6 +10,13 @@ struct AINewsTodayApp: App {
     init() {
         container = PersistenceService.shared.container
         StoreManager.shared.configure()
+
+        #if DEBUG
+        if ScreenshotSampleData.isScreenshotMode {
+            let context = container.mainContext
+            ScreenshotSampleData.populate(context: context)
+        }
+        #endif
     }
 
     var body: some Scene {
