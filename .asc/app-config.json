@@ -1,0 +1,27 @@
+{
+  "app": {
+    "name": "ai news today",
+    "bundleId": "com.chadnewbry.ainewstoday",
+    "copyright": "© 2026 Chad Newbry"
+  },
+  "urls": {
+    "website": "https://chadnewbry.github.io/ai-news-today",
+    "privacyPolicy": "https://chadnewbry.github.io/ai-news-today/privacy-policy.html",
+    "termsOfService": "https://chadnewbry.github.io/ai-news-today/terms-of-service.html",
+    "support": null
+  },
+  "review": {
+    "demoAccountRequired": false,
+    "contact": {
+      "firstName": "Chad",
+      "lastName": "Newbry",
+      "email": "chad.newbry@gmail.com",
+      "phone": "+15417605021"
+    }
+  },
+  "iap": {
+    "provider": "RevenueCat",
+    "entitlementId": "pro",
+    "note": "RevenueCat API key must be set in StoreManager.swift (replace placeholder)"
+  }
+}
